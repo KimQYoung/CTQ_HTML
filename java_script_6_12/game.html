@@ -1,0 +1,122 @@
+<!DOCTYPE = html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>BlueandWhite</title>
+
+        <style>
+            .Q{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                height: 200px;
+                background-color: gray;
+            }
+            body{
+                background-color: gray;
+            }
+            #E{
+                display: grid;
+                place-items: center;
+                grid-template-columns: 1fr 1fr;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <h1>청기 백기</h1>
+        <input type="button" value="시작" onclick=test()>
+
+        <script>
+            var i = [];
+            // 청기 백기 게임을 구현하려고 했으나 아래의 함수가 제대로 작동하지 않아 구현하지 못했습니다.
+            function test() {
+                for(A=0; A<=4; A++){       
+                    var color = Math.floor(Math.random() *2 );
+                    i[A] = color;
+                    console.log(i)
+
+
+                    if (i[A] === 1) {
+                        document.querySelector('#blue').style.background ='blue';
+                        // console.log('blue ' + document.querySelector('#blue').style.background)
+                        document.querySelector('#blue').style.background ='gray';
+                        // console.log('blue ' + document.querySelector('#blue').style.background)
+                    } else{
+                        document.querySelector('#white').style.background ='white';
+                        // console.log('white ' + document.querySelector('#white').style.background)
+                        document.querySelector('#white').style.background ='gray';
+                        // console.log('white ' + document.querySelector('#white').style.background)
+                    }
+                    document.querySelector('#blue').style.background ='gray';
+                    document.querySelector('#white').style.background ='gray';
+                    sleep(1000);
+                }
+            }
+
+            function sleep(ms) {
+                const wakeUpTime = Date.now() + ms;
+                while (Date.now() < wakeUpTime) {}
+            }
+            var S = [9,9,9,9,9,9,9];
+            if(S.length > 5){
+                S.length = 5;
+            }
+            function qqq(){
+                S[bb] = 0; console.log(S); bb++;
+                    if(S.length > 5){
+                    S.length = 5;
+                    }
+                go();
+            }
+            function qq(){
+                S[bb] = 1; console.log(S); bb++;
+                    if(S.length > 5){
+                    S.length = 5;
+
+                    }
+                go();
+                
+            }
+            var c = 'end'
+            function go(){
+                if(bb===5){
+                    for(B=0; B<=4; B++){
+                            if(i[B]===S[B]){
+                                console.log('간다');
+                                document.write(c);
+                            }
+                        }
+                }
+            }
+            
+        </script>
+
+        <div class="Q">
+            <div id="blue">
+                <br>
+            </div>
+            <div id="white">
+                <br>
+            </div>
+        </div>
+
+        <div id="E">
+            <script>
+                var bb = 0;
+            </script>
+            <div id="B">
+                <input type="button" value="청기" onclick="
+                qq();
+                ">
+            </div>
+            <div id="W">
+                <input type="button" value="백기" onclick=" 
+                    qqq();
+                ">
+            </div>
+        </div>
+
+    </body>
+</html>
