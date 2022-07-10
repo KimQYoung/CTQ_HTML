@@ -1,0 +1,139 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Puzzle</title>
+        <style>
+            #l1{
+                display: grid;
+                 grid-template-columns: 75px 75px 75px 75px;
+                /* background-colo r: red; */
+                border-style: solid;
+                border-color: black;
+                width: 300px;
+            }
+            #l2{
+                display: grid;
+                 grid-template-columns: 75px 75px 75px 75px;
+                /* background-colo r: orange; */
+                 border-style: solid;
+                border-color: black;
+                width: 300px;
+            }
+            #l3{
+                display: grid;
+                 grid-template-columns: 75px 75px 75px 75px;
+                /* background-colo r: yellow; */
+                border-style: solid;
+                border-color: black;
+                width: 300px;
+            }
+            #l4{
+                display: grid;
+                 grid-template-columns: 75px 75px 75px 75px;
+                /* background-colo r: green; */
+                 border-style: solid;
+                border-color: black;
+                width: 300px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <script>
+            var y = 1;
+            var u = 2;
+            let w = [[1,2,3,4], [5,6,0,8], [9,10,11,12], [13,14,15,7]];
+            function num(n){
+                console.log(n);
+                // console.log(w[y-10][u]);
+                if (u < 3 && u > 0 && y < 3 && y > 0) {
+                    if(n.value != w[y-1][u]&&n.value != w[y+1][u] &&n.value != w[y][u+1] &&n.value != w[y][u-1]){
+                        return
+                    }
+                    
+                }
+                if (u < 3 && u > 0) {
+                    if (n.value == w[y][u+1]) {
+                        w[y][u] = w[y][u+1];
+                        n.value = 0;
+                        console.log(y, u);
+                        u++
+                    }
+                    if (n.value == w[y][u-1]) {
+                        w[y][u] = w[y][u-1];
+                        n.value = 0;
+                        console.log(y, u);
+                        u--
+                    }
+                    
+                }
+                if (y < 3 && y > 0) {
+                    if ( n.value == w[y-1][u]) {
+                        w[y][u] = w[y-1][u];
+                        n.value = 0;
+                        console.log(y, u);
+                        y--
+                    }
+                    if (n.value == w[y+1][u]) {
+                        w[y][u] = w[y+1][u];
+                        n.value = 0;
+                        console.log(y, u);
+                        y++
+                    }
+                    
+                }
+
+                }
+            
+            </script>
+        <h1>Sliding Puzzle</h 1>
+        <div>
+            <div id="l1">
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="1" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="2" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="3" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="4" onclick="num(this) "></h2>
+            </div>
+            <div id="l2">
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="5" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="6" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="7" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="8" onclick="num(this) "></h2>
+            </div>
+            <div id="l3">
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="9" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="10" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="11" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="12" onclick="num(this) "></h2>
+            </div>
+            <div id="l4">
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="13" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="14" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="15" onclick="num(this) "></h2>
+                <h2><input type="button" value="" style="font-size: 30px; width: 50px; height: 50px;" id="16" onclick="num(this) "></h2>
+            </div>                                                  
+        </div>
+        <script>
+            function reset(){
+                w = [[1,2,3,4], [5,6,0,8], [9,10,11,12], [13,14,15,7]];
+                y = 1;
+                u = 2;
+                var c = 1;
+                    for(var a = 0; a < 4; a++){
+                        for(var b = 0; b < 4; b++){
+                            
+                            document.getElementById(c).value= w[a][b];
+                            
+                            console.log(a, b, c);
+                            console.log(document.getElementById(c));
+                            c++;
+                        }
+                        
+                    }
+                }
+            
+        </script>
+            <h2><input type="button" value="Re" onclick="reset() "></h2>
+    </body>
+</html>
